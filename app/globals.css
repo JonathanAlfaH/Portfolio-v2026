@@ -1,9 +1,21 @@
 @import "tailwindcss";
 @import "bootstrap-icons/font/bootstrap-icons.css";
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-scheme: light dark;
+  --background-primary: #ffffff;
+  --background-secondary: #bcbcbd;
+  --foreground: #000000;
+  --primary: #1b165e; 
+  --secondary: #ff5f57;
+  --main-text: #1b165e;
 }
+.dark {
+    --background-primary: #0D004A;
+    --background-secondary: #0D0D0D;
+    --foreground: #ffffff;
+    --main-text: #ffffff;
+  } 
 
 @theme inline {
   --color-background: var(--background);
@@ -12,15 +24,26 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+
 body {
-  background: var(--background);
+  background: linear-gradient(to top right, var(--background-secondary), var(--background-primary));
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
